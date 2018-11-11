@@ -1,0 +1,16 @@
+{
+  "name": "json-schema-lab",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "ajv": "ajv",
+    "validate": "ajv validate -s schemas/vcard.json -d data/jane-doe.json"
+  },
+  "repository": "https://github.com/jbenner-radham/json-schema-lab.git",
+  "author": "James Benner <james.benner@gmail.com> (http://www.jamesbenner.com/)",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "ajv-cli": "^3.0.0"
+  }
+}

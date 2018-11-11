@@ -1,0 +1,18 @@
+{
+    "kind": "individual",
+    "fn": "Jane Doe",
+    "title": "Example",
+    "role": "faux person",
+    "email": {
+        "type": "work",
+        "value": "jane.doe+work@example.com"
+    },
+    "telephone": {
+        "type": [
+            "work",
+            "voice"
+        ],
+        "value": "555.867.5309"
+    },
+    "url": "https://jane-doe.example.com/"
+}

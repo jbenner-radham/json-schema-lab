@@ -1,0 +1,118 @@
+{
+    "$id": "https://example.com/schemas/vcard.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A format for representing and exchanging a variety of information about individuals and other entities.",
+    "type": "object",
+    "properties": {
+        "kind": {
+            "enum": [
+                "group",
+                "individual",
+                "location",
+                "org"
+            ],
+            "type": "string"
+        },
+        "fn": {
+            "type": "string",
+            "title": "Formatted Name"
+        },
+        "familyName": {
+            "type": "string"
+        },
+        "givenName": {
+            "type": "string"
+        },
+        "additionalName": {
+            "type": "string"
+        },
+        "honorificPrefix": {
+            "type": "string"
+        },
+        "honorificSuffix": {
+            "type": "string"
+        },
+        "nickname": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "role": {
+            "type": "string"
+        },
+        "email": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "home",
+                        "work"
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "format": "email"
+                }
+            }
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "telephone": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "cell",
+                                "fax",
+                                "home",
+                                "pager",
+                                "text",
+                                "textphone",
+                                "video",
+                                "voice",
+                                "work"
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "enum": [
+                                    "cell",
+                                    "fax",
+                                    "home",
+                                    "pager",
+                                    "text",
+                                    "textphone",
+                                    "video",
+                                    "voice",
+                                    "work"
+                                ]
+                            }
+                        }
+                    ]
+
+,
+                    "type": [
+                        "array",
+                        "string"
+                    ],
+                    "default": "voice"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [
+        "fn",
+        "kind"
+    ]
+}
