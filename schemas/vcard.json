@@ -89,36 +89,35 @@
                         "string",
                         "array"
                     ],
-                    "if": {
-                        "type": "string"
-                    },
-                    "then": {
-                        "type": "string",
-                        "oneOf": [
-                            {
-                                "$ref": "#/definitions/types"
-                            },
-                            {
-                                "$ref": "#/definitions/telephones"
-                            }
-                        ]
-                    },
-                    "else": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "anyOf": [
-                            {
-                                "items": [
-                                    {
-                                        "$ref": "#/definitions/types"
-                                    },
-                                    {
-                                        "$ref": "#/definitions/telephones"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
+                    "oneOf": [
+                        {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "$ref": "#/definitions/types"
+                                },
+                                {
+                                    "$ref": "#/definitions/telephones"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "items": [
+                                {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/definitions/types"
+                                        },
+                                        {
+                                            "$ref": "#/definitions/telephones"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
                     "default": "voice"
                 },
                 "value": {
