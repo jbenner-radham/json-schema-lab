@@ -1,5 +1,5 @@
 {
-    "$id": "https://example.com/schemas/vcard.json",
+    "$id": "https://raw.githubusercontent.com/jbenner-radham/json-schema-lab/master/schemas/vcard.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "vCard",
     "description": "A format for representing and exchanging a variety of information about individuals and other entities.",
