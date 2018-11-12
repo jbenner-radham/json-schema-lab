@@ -1,8 +1,28 @@
 {
     "$id": "https://example.com/schemas/vcard.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "vCard",
     "description": "A format for representing and exchanging a variety of information about individuals and other entities.",
     "type": "object",
+    "definitions": {
+        "telephones": {
+            "enum": [
+                "cell",
+                "fax",
+                "pager",
+                "text",
+                "textphone",
+                "video",
+                "voice"
+            ]
+        },
+        "types": {
+            "enum": [
+                "home",
+                "work"
+            ]
+        }
+    },
     "properties": {
         "kind": {
             "enum": [
@@ -66,41 +86,39 @@
             "properties": {
                 "type": {
                     "type": [
-                        "array",
-                        "string"
+                        "string",
+                        "array"
                     ],
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "enum": [
-                                "cell",
-                                "fax",
-                                "home",
-                                "pager",
-                                "text",
-                                "textphone",
-                                "video",
-                                "voice",
-                                "work"
-                            ]
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "enum": [
-                                    "cell",
-                                    "fax",
-                                    "home",
-                                    "pager",
-                                    "text",
-                                    "textphone",
-                                    "video",
-                                    "voice",
-                                    "work"
+                    "if": {
+                        "type": "string"
+                    },
+                    "then": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/types"
+                            },
+                            {
+                                "$ref": "#/definitions/telephones"
+                            }
+                        ]
+                    },
+                    "else": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "anyOf": [
+                            {
+                                "items": [
+                                    {
+                                        "$ref": "#/definitions/types"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/telephones"
+                                    }
                                 ]
                             }
-                        }
-                    ],
+                        ]
+                    },
                     "default": "voice"
                 },
                 "value": {

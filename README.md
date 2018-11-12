@@ -11,3 +11,4 @@
 - https://www.w3.org/TR/vcard-rdf/
 - https://tools.ietf.org/html/rfc6350
 - https://gist.github.com/jbenner-radham/0a063e32f32e6dfa8304
+- https://json-schema.org/learn/miscellaneous-examples.html
