@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "ajv": "ajv",
+    "compile": "ajv compile -s schemas/vcard.json",
     "validate": "ajv validate -s schemas/vcard.json -d data/jane-doe.json"
   },
   "repository": "https://github.com/jbenner-radham/json-schema-lab.git",
